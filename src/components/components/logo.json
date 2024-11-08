@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_components_logos",
+  "info": {
+    "displayName": "headerLogo",
+    "icon": "",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "headerLogo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

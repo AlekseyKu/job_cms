@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_components_header_buttons",
+  "info": {
+    "displayName": "headerButton"
+  },
+  "options": {},
+  "attributes": {
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    }
+  }
+}

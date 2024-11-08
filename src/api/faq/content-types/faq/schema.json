@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "faqs",
+  "info": {
+    "singularName": "faq",
+    "pluralName": "faqs",
+    "displayName": "FAQ",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "private": true
+    },
+    "faqRow": {
+      "type": "component",
+      "repeatable": true,
+      "component": "table.table-row"
+    },
+    "pretitle": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "faqID": {
+      "type": "uid"
+    },
+    "all_sites": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::all-site.all-site",
+      "mappedBy": "faq"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "info_casinos",
+  "info": {
+    "singularName": "info-casino",
+    "pluralName": "info-casinos",
+    "displayName": "InfoCasino",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "tableInfoCasino": {
+      "type": "component",
+      "repeatable": true,
+      "component": "table.table-row"
+    },
+    "pretitle": {
+      "type": "text"
+    },
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    }
+  }
+}

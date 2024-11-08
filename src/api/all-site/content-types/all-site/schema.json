@@ -1,0 +1,85 @@
+{
+  "kind": "collectionType",
+  "collectionName": "all_sites",
+  "info": {
+    "singularName": "all-site",
+    "pluralName": "all-sites",
+    "displayName": "allSite",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "siteName": {
+      "type": "string"
+    },
+    "siteDomain": {
+      "type": "string"
+    },
+    "targetLink": {
+      "type": "string",
+      "required": false
+    },
+    "header": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::header.header",
+      "inversedBy": "all_sites"
+    },
+    "favicon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "siteID": {
+      "type": "uid",
+      "required": true
+    },
+    "editor_info": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::editor-info.editor-info",
+      "inversedBy": "all_sites"
+    },
+    "faq": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::faq.faq",
+      "inversedBy": "all_sites"
+    },
+    "footer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::footer.footer",
+      "inversedBy": "all_sites"
+    },
+    "home_page": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::home-page.home-page",
+      "inversedBy": "all_sites"
+    },
+    "siteLogo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "siteTitle": {
+      "type": "string"
+    },
+    "siteDescription": {
+      "type": "text"
+    }
+  }
+}

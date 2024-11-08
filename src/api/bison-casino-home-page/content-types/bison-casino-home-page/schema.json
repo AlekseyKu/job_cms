@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bison_casino_home_pages",
+  "info": {
+    "singularName": "bison-casino-home-page",
+    "pluralName": "bison-casino-home-pages",
+    "displayName": "BisonCasino_HomePage",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "pretitle": {
+      "type": "string"
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "pageImg": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "pageBg": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "editor_infos",
+  "info": {
+    "singularName": "editor-info",
+    "pluralName": "editor-infos",
+    "displayName": "EditorInfo",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "editorInfo": {
+      "type": "customField",
+      "options": {
+        "preset": "default"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "title": {
+      "type": "string",
+      "private": true
+    },
+    "editorID": {
+      "type": "uid",
+      "required": false
+    },
+    "all_sites": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::all-site.all-site",
+      "mappedBy": "editor_info"
+    }
+  }
+}
