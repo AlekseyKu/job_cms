@@ -4,7 +4,7 @@
   "info": {
     "singularName": "editor-info",
     "pluralName": "editor-infos",
-    "displayName": "EditorInfo",
+    "displayName": "2_EditorInfo",
     "description": ""
   },
   "options": {
@@ -22,10 +22,6 @@
     "title": {
       "type": "string",
       "private": true
-    },
-    "editorID": {
-      "type": "uid",
-      "required": false
     },
     "all_sites": {
       "type": "relation",

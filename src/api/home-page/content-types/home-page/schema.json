@@ -4,7 +4,7 @@
   "info": {
     "singularName": "home-page",
     "pluralName": "home-pages",
-    "displayName": "HomePage",
+    "displayName": "1_HomePage",
     "description": ""
   },
   "options": {
@@ -44,8 +44,7 @@
     },
     "name": {
       "type": "string",
-      "required": true,
-      "private": true
+      "required": false
     },
     "all_sites": {
       "type": "relation",

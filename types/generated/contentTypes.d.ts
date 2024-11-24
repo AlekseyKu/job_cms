@@ -500,7 +500,7 @@ export interface ApiAllSiteAllSite extends Struct.CollectionTypeSchema {
   info: {
     singularName: 'all-site';
     pluralName: 'all-sites';
-    displayName: 'allSite';
+    displayName: '_allSite';
     description: '';
   };
   options: {
@@ -510,15 +510,12 @@ export interface ApiAllSiteAllSite extends Struct.CollectionTypeSchema {
     siteName: Schema.Attribute.String;
     siteDomain: Schema.Attribute.String;
     targetLink: Schema.Attribute.String;
-    header: Schema.Attribute.Relation<'manyToOne', 'api::header.header'>;
-    favicon: Schema.Attribute.Media<'images'>;
     siteID: Schema.Attribute.UID & Schema.Attribute.Required;
     editor_info: Schema.Attribute.Relation<
       'manyToOne',
       'api::editor-info.editor-info'
     >;
     faq: Schema.Attribute.Relation<'manyToOne', 'api::faq.faq'>;
-    footer: Schema.Attribute.Relation<'manyToOne', 'api::footer.footer'>;
     home_page: Schema.Attribute.Relation<
       'manyToOne',
       'api::home-page.home-page'
@@ -526,6 +523,16 @@ export interface ApiAllSiteAllSite extends Struct.CollectionTypeSchema {
     siteLogo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     siteTitle: Schema.Attribute.String;
     siteDescription: Schema.Attribute.Text;
+    favicon: Schema.Attribute.Media<'images'>;
+    page_sections: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::page-section.page-section'
+    >;
+    themePrimaryColor: Schema.Attribute.String;
+    themeSecondaryColor: Schema.Attribute.String;
+    targetLinkButton: Schema.Attribute.String & Schema.Attribute.DefaultTo<'/'>;
+    footer: Schema.Attribute.Relation<'manyToOne', 'api::footer.footer'>;
+    header: Schema.Attribute.Relation<'manyToOne', 'api::header.header'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -588,7 +595,7 @@ export interface ApiEditorInfoEditorInfo extends Struct.CollectionTypeSchema {
   info: {
     singularName: 'editor-info';
     pluralName: 'editor-infos';
-    displayName: 'EditorInfo';
+    displayName: '2_EditorInfo';
     description: '';
   };
   options: {
@@ -603,7 +610,6 @@ export interface ApiEditorInfoEditorInfo extends Struct.CollectionTypeSchema {
         }
       >;
     title: Schema.Attribute.String & Schema.Attribute.Private;
-    editorID: Schema.Attribute.UID;
     all_sites: Schema.Attribute.Relation<'oneToMany', 'api::all-site.all-site'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -626,7 +632,7 @@ export interface ApiFaqFaq extends Struct.CollectionTypeSchema {
   info: {
     singularName: 'faq';
     pluralName: 'faqs';
-    displayName: 'FAQ';
+    displayName: '3_FAQ';
     description: '';
   };
   options: {
@@ -702,8 +708,7 @@ export interface ApiHeaderHeader extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    logo: Schema.Attribute.Media<'images' | 'files'> &
-      Schema.Attribute.Required;
+    logo: Schema.Attribute.Media<'images' | 'files'>;
     buttonText: Schema.Attribute.String;
     name: Schema.Attribute.String & Schema.Attribute.Private;
     all_sites: Schema.Attribute.Relation<'oneToMany', 'api::all-site.all-site'>;
@@ -760,7 +765,7 @@ export interface ApiHomePageHomePage extends Struct.CollectionTypeSchema {
   info: {
     singularName: 'home-page';
     pluralName: 'home-pages';
-    displayName: 'HomePage';
+    displayName: '1_HomePage';
     description: '';
   };
   options: {
@@ -773,9 +778,7 @@ export interface ApiHomePageHomePage extends Struct.CollectionTypeSchema {
     buttonText: Schema.Attribute.String;
     pageBg: Schema.Attribute.Media<'images' | 'files'>;
     pageImg: Schema.Attribute.Media<'images' | 'files'>;
-    name: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
     all_sites: Schema.Attribute.Relation<'oneToMany', 'api::all-site.all-site'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -820,6 +823,41 @@ export interface ApiInfoCasinoInfoCasino extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::info-casino.info-casino'
+    > &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPageSectionPageSection extends Struct.CollectionTypeSchema {
+  collectionName: 'page_sections';
+  info: {
+    singularName: 'page-section';
+    pluralName: 'page-sections';
+    displayName: 'admin_PageSection';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    sectionName: Schema.Attribute.String;
+    sectionVisible: Schema.Attribute.Boolean;
+    sectionPosition: Schema.Attribute.Integer;
+    all_sites: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::all-site.all-site'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::page-section.page-section'
     > &
       Schema.Attribute.Private;
   };
@@ -1288,6 +1326,7 @@ declare module '@strapi/strapi' {
       'api::hero-banner.hero-banner': ApiHeroBannerHeroBanner;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::info-casino.info-casino': ApiInfoCasinoInfoCasino;
+      'api::page-section.page-section': ApiPageSectionPageSection;
       'api::security-and-license.security-and-license': ApiSecurityAndLicenseSecurityAndLicense;
       'api::seo-meta-tag.seo-meta-tag': ApiSeoMetaTagSeoMetaTag;
       'admin::permission': AdminPermission;

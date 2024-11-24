@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "page_sections",
+  "info": {
+    "singularName": "page-section",
+    "pluralName": "page-sections",
+    "displayName": "admin_PageSection",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "sectionName": {
+      "type": "string"
+    },
+    "sectionVisible": {
+      "type": "boolean"
+    },
+    "sectionPosition": {
+      "type": "integer"
+    },
+    "all_sites": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::all-site.all-site",
+      "inversedBy": "page_sections"
+    }
+  }
+}

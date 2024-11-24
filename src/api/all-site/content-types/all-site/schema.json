@@ -4,7 +4,7 @@
   "info": {
     "singularName": "all-site",
     "pluralName": "all-sites",
-    "displayName": "allSite",
+    "displayName": "_allSite",
     "description": ""
   },
   "options": {
@@ -22,20 +22,6 @@
       "type": "string",
       "required": false
     },
-    "header": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::header.header",
-      "inversedBy": "all_sites"
-    },
-    "favicon": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
     "siteID": {
       "type": "uid",
       "required": true
@@ -50,12 +36,6 @@
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::faq.faq",
-      "inversedBy": "all_sites"
-    },
-    "footer": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::footer.footer",
       "inversedBy": "all_sites"
     },
     "home_page": {
@@ -80,6 +60,42 @@
     },
     "siteDescription": {
       "type": "text"
+    },
+    "favicon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "page_sections": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::page-section.page-section",
+      "mappedBy": "all_sites"
+    },
+    "themePrimaryColor": {
+      "type": "string"
+    },
+    "themeSecondaryColor": {
+      "type": "string"
+    },
+    "targetLinkButton": {
+      "type": "string",
+      "default": "/"
+    },
+    "footer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::footer.footer",
+      "inversedBy": "all_sites"
+    },
+    "header": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::header.header",
+      "inversedBy": "all_sites"
     }
   }
 }
