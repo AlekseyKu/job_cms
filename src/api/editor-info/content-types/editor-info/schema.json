@@ -19,7 +19,7 @@
       },
       "customField": "plugin::ckeditor5.CKEditor"
     },
-    "title": {
+    "name": {
       "type": "string",
       "private": true
     },

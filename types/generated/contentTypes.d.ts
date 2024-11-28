@@ -506,10 +506,30 @@ export interface ApiAllSiteAllSite extends Struct.CollectionTypeSchema {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    siteName: Schema.Attribute.String;
-    siteDomain: Schema.Attribute.String;
-    targetLink: Schema.Attribute.String;
+    siteName: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    siteDomain: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    targetLink: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     siteID: Schema.Attribute.UID & Schema.Attribute.Required;
     editor_info: Schema.Attribute.Relation<
       'manyToOne',
@@ -520,19 +540,118 @@ export interface ApiAllSiteAllSite extends Struct.CollectionTypeSchema {
       'manyToOne',
       'api::home-page.home-page'
     >;
-    siteLogo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    siteTitle: Schema.Attribute.String;
-    siteDescription: Schema.Attribute.Text;
-    favicon: Schema.Attribute.Media<'images'>;
+    siteLogo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    siteTitle: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    siteDescription: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    favicon: Schema.Attribute.Media<'images'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     page_sections: Schema.Attribute.Relation<
       'manyToMany',
       'api::page-section.page-section'
     >;
-    themePrimaryColor: Schema.Attribute.String;
-    themeSecondaryColor: Schema.Attribute.String;
-    targetLinkButton: Schema.Attribute.String & Schema.Attribute.DefaultTo<'/'>;
+    themePrimaryColor: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    themeSecondaryColor: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    targetLinkButton: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<'/'>;
     footer: Schema.Attribute.Relation<'manyToOne', 'api::footer.footer'>;
     header: Schema.Attribute.Relation<'manyToOne', 'api::header.header'>;
+    localeLang: Schema.Attribute.Enumeration<
+      ['en-Gb', 'pl-PL', 'es-ES', 'nl-NL', 'fr-FR', 'de-DE']
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    themeBGPrimaryColor: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<'#10181f'>;
+    themeBGSecondaryColor: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<'#0b0e13'>;
+    titleMetadataSeo: Schema.Attribute.String &
+      Schema.Attribute.Private &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    titleHomePage: Schema.Attribute.String &
+      Schema.Attribute.Private &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    titlePromoImg: Schema.Attribute.String &
+      Schema.Attribute.Private &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    titleSiteComponents: Schema.Attribute.String &
+      Schema.Attribute.Private &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    titleSiteSettings: Schema.Attribute.String &
+      Schema.Attribute.Private &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    promoImg: Schema.Attribute.Media<'images', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -540,12 +659,11 @@ export interface ApiAllSiteAllSite extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::all-site.all-site'
-    > &
-      Schema.Attribute.Private;
+    >;
   };
 }
 
@@ -609,7 +727,7 @@ export interface ApiEditorInfoEditorInfo extends Struct.CollectionTypeSchema {
           preset: 'default';
         }
       >;
-    title: Schema.Attribute.String & Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Private;
     all_sites: Schema.Attribute.Relation<'oneToMany', 'api::all-site.all-site'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -669,15 +787,50 @@ export interface ApiFooterFooter extends Struct.CollectionTypeSchema {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    footerText: Schema.Attribute.Text;
-    socialTitle: Schema.Attribute.String;
-    footerLinksTitle: Schema.Attribute.String;
-    quickLink: Schema.Attribute.Component<'components.link', true>;
+    footerText: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    socialTitle: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    footerLinksTitle: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    quickLink: Schema.Attribute.Component<'components.link', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     name: Schema.Attribute.String &
       Schema.Attribute.Required &
-      Schema.Attribute.Private;
-    logo: Schema.Attribute.Media<'images' | 'files'>;
+      Schema.Attribute.Private &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    logo: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     footerID: Schema.Attribute.UID;
     all_sites: Schema.Attribute.Relation<'oneToMany', 'api::all-site.all-site'>;
     createdAt: Schema.Attribute.DateTime;
@@ -687,12 +840,8 @@ export interface ApiFooterFooter extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::footer.footer'
-    > &
-      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::footer.footer'>;
   };
 }
 

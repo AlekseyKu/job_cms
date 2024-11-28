@@ -29,6 +29,7 @@ export default factories.createCoreController('api::all-site.all-site', ({ strap
         favicon: true,
         siteLogo: true,
         page_sections: true,
+        promoImg: true,
       },
     });
     
