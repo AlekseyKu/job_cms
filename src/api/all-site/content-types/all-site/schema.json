@@ -164,7 +164,11 @@
         "es-ES",
         "nl-NL",
         "fr-FR",
-        "de-DE"
+        "de-DE",
+        "el-GR",
+        "it-IT",
+        "ro-RO",
+        "pt-PT"
       ]
     },
     "themeBGPrimaryColor": {
@@ -231,16 +235,56 @@
       "private": true
     },
     "promoImg": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images"
       ],
-      "type": "media",
-      "multiple": true,
       "pluginOptions": {
         "i18n": {
           "localized": false
         }
       }
+    },
+    "H1": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "sizeLogo": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "small - 200px",
+        "medium - 250px",
+        "big - 300px"
+      ],
+      "default": "small - 200px"
+    },
+    "colorTitleMain": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string",
+      "default": "#FFFFFF"
+    },
+    "idYandexMetrika": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string"
     }
   }
 }

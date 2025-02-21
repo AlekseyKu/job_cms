@@ -590,7 +590,18 @@ export interface ApiAllSiteAllSite extends Struct.CollectionTypeSchema {
     footer: Schema.Attribute.Relation<'manyToOne', 'api::footer.footer'>;
     header: Schema.Attribute.Relation<'manyToOne', 'api::header.header'>;
     localeLang: Schema.Attribute.Enumeration<
-      ['en-Gb', 'pl-PL', 'es-ES', 'nl-NL', 'fr-FR', 'de-DE']
+      [
+        'en-Gb',
+        'pl-PL',
+        'es-ES',
+        'nl-NL',
+        'fr-FR',
+        'de-DE',
+        'el-GR',
+        'it-IT',
+        'ro-RO',
+        'pt-PT',
+      ]
     > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -647,6 +658,34 @@ export interface ApiAllSiteAllSite extends Struct.CollectionTypeSchema {
         };
       }>;
     promoImg: Schema.Attribute.Media<'images', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    H1: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    sizeLogo: Schema.Attribute.Enumeration<
+      ['small - 200px', 'medium - 250px', 'big - 300px']
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<'small - 200px'>;
+    colorTitleMain: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<'#FFFFFF'>;
+    idYandexMetrika: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
@@ -1084,6 +1123,36 @@ export interface ApiSeoMetaTagSeoMetaTag extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiSpintaxSpintax extends Struct.CollectionTypeSchema {
+  collectionName: 'spintaxes';
+  info: {
+    singularName: 'spintax';
+    pluralName: 'spintaxes';
+    displayName: 'Spintax';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Schema.Attribute.String;
+    words: Schema.Attribute.JSON;
+    localeLang: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::spintax.spintax'
+    > &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface AdminPermission extends Struct.CollectionTypeSchema {
   collectionName: 'admin_permissions';
   info: {
@@ -1478,6 +1547,7 @@ declare module '@strapi/strapi' {
       'api::page-section.page-section': ApiPageSectionPageSection;
       'api::security-and-license.security-and-license': ApiSecurityAndLicenseSecurityAndLicense;
       'api::seo-meta-tag.seo-meta-tag': ApiSeoMetaTagSeoMetaTag;
+      'api::spintax.spintax': ApiSpintaxSpintax;
       'admin::permission': AdminPermission;
       'admin::user': AdminUser;
       'admin::role': AdminRole;
