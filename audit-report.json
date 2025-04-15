@@ -1,0 +1,821 @@
+{
+  "auditReportVersion": 2,
+  "vulnerabilities": {
+    "@_sh/strapi-plugin-ckeditor": {
+      "name": "@_sh/strapi-plugin-ckeditor",
+      "severity": "moderate",
+      "isDirect": true,
+      "via": [
+        "@strapi/strapi"
+      ],
+      "effects": [],
+      "range": ">=4.0.0",
+      "nodes": [
+        "node_modules/@_sh/strapi-plugin-ckeditor"
+      ],
+      "fixAvailable": {
+        "name": "@_sh/strapi-plugin-ckeditor",
+        "version": "3.0.9",
+        "isSemVerMajor": true
+      }
+    },
+    "@strapi/admin": {
+      "name": "@strapi/admin",
+      "severity": "critical",
+      "isDirect": true,
+      "via": [
+        "@strapi/data-transfer",
+        "@strapi/types",
+        "koa",
+        "msw"
+      ],
+      "effects": [
+        "@strapi/content-releases",
+        "@strapi/content-type-builder",
+        "@strapi/core",
+        "@strapi/email",
+        "@strapi/review-workflows",
+        "@strapi/strapi",
+        "@strapi/upload"
+      ],
+      "range": "<=0.0.0-next.fe88c7878fe2948cfdc68f4867329c1032a618b2 || 4.5.0-alpha.0 - 4.6.1 || >=4.14.0-alpha.0",
+      "nodes": [
+        "node_modules/@strapi/admin"
+      ],
+      "fixAvailable": {
+        "name": "@strapi/strapi",
+        "version": "4.25.20",
+        "isSemVerMajor": true
+      }
+    },
+    "@strapi/content-manager": {
+      "name": "@strapi/content-manager",
+      "severity": "critical",
+      "isDirect": true,
+      "via": [
+        "@strapi/admin",
+        "@strapi/types",
+        "koa"
+      ],
+      "effects": [
+        "@strapi/content-releases",
+        "@strapi/i18n",
+        "@strapi/review-workflows"
+      ],
+      "range": "<=0.0.0-next.fdac61dd05ca665168f51f655f1d165b55ec4231 || >=5.0.0-beta.6",
+      "nodes": [
+        "node_modules/@strapi/content-manager"
+      ],
+      "fixAvailable": {
+        "name": "@strapi/review-workflows",
+        "version": "0.0.1",
+        "isSemVerMajor": true
+      }
+    },
+    "@strapi/content-releases": {
+      "name": "@strapi/content-releases",
+      "severity": "critical",
+      "isDirect": true,
+      "via": [
+        "@strapi/admin",
+        "@strapi/content-manager",
+        "@strapi/types"
+      ],
+      "effects": [
+        "@strapi/strapi"
+      ],
+      "range": "*",
+      "nodes": [
+        "node_modules/@strapi/content-releases"
+      ],
+      "fixAvailable": {
+        "name": "@strapi/strapi",
+        "version": "4.25.20",
+        "isSemVerMajor": true
+      }
+    },
+    "@strapi/content-type-builder": {
+      "name": "@strapi/content-type-builder",
+      "severity": "critical",
+      "isDirect": false,
+      "via": [
+        "@strapi/admin",
+        "@strapi/generators"
+      ],
+      "effects": [],
+      "range": "<=0.0.0-next.fdac61dd05ca665168f51f655f1d165b55ec4231 || >=5.0.0-beta.6",
+      "nodes": [
+        "node_modules/@strapi/content-type-builder"
+      ],
+      "fixAvailable": true
+    },
+    "@strapi/core": {
+      "name": "@strapi/core",
+      "severity": "critical",
+      "isDirect": false,
+      "via": [
+        "@strapi/admin",
+        "@strapi/generators",
+        "@strapi/pack-up",
+        "@strapi/types",
+        "koa",
+        "undici"
+      ],
+      "effects": [],
+      "range": "*",
+      "nodes": [
+        "node_modules/@strapi/core"
+      ],
+      "fixAvailable": true
+    },
+    "@strapi/data-transfer": {
+      "name": "@strapi/data-transfer",
+      "severity": "critical",
+      "isDirect": false,
+      "via": [
+        "@strapi/types"
+      ],
+      "effects": [
+        "@strapi/admin"
+      ],
+      "range": ">=4.14.0-alpha.0",
+      "nodes": [
+        "node_modules/@strapi/data-transfer",
+        "node_modules/@strapi/strapi/node_modules/@strapi/data-transfer"
+      ],
+      "fixAvailable": {
+        "name": "@strapi/strapi",
+        "version": "4.25.20",
+        "isSemVerMajor": true
+      }
+    },
+    "@strapi/email": {
+      "name": "@strapi/email",
+      "severity": "critical",
+      "isDirect": false,
+      "via": [
+        "@strapi/admin",
+        "koa"
+      ],
+      "effects": [
+        "@strapi/strapi"
+      ],
+      "range": "<=0.0.0-next.fdac61dd05ca665168f51f655f1d165b55ec4231 || >=5.0.0-beta.6",
+      "nodes": [
+        "node_modules/@strapi/strapi/node_modules/@strapi/email"
+      ],
+      "fixAvailable": {
+        "name": "@strapi/strapi",
+        "version": "4.25.20",
+        "isSemVerMajor": true
+      }
+    },
+    "@strapi/generators": {
+      "name": "@strapi/generators",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "plop"
+      ],
+      "effects": [
+        "@strapi/content-type-builder",
+        "@strapi/core",
+        "@strapi/strapi"
+      ],
+      "range": "<=5.1.0",
+      "nodes": [
+        "node_modules/@strapi/generators"
+      ],
+      "fixAvailable": {
+        "name": "@strapi/strapi",
+        "version": "4.25.20",
+        "isSemVerMajor": true
+      }
+    },
+    "@strapi/i18n": {
+      "name": "@strapi/i18n",
+      "severity": "critical",
+      "isDirect": true,
+      "via": [
+        "@strapi/admin",
+        "@strapi/content-manager"
+      ],
+      "effects": [],
+      "range": "<=0.0.0-next.fdac61dd05ca665168f51f655f1d165b55ec4231 || >=5.0.0-beta.6",
+      "nodes": [
+        "node_modules/@strapi/i18n"
+      ],
+      "fixAvailable": {
+        "name": "@strapi/i18n",
+        "version": "0.0.0",
+        "isSemVerMajor": true
+      }
+    },
+    "@strapi/pack-up": {
+      "name": "@strapi/pack-up",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "@vitejs/plugin-react-swc",
+        "esbuild",
+        "vite",
+        "vite"
+      ],
+      "effects": [
+        "@strapi/core",
+        "@strapi/sdk-plugin",
+        "@strapi/strapi"
+      ],
+      "range": "*",
+      "nodes": [
+        "node_modules/@strapi/core/node_modules/@strapi/pack-up",
+        "node_modules/@strapi/pack-up",
+        "node_modules/@strapi/strapi/node_modules/@strapi/pack-up"
+      ],
+      "fixAvailable": {
+        "name": "@strapi/strapi",
+        "version": "4.25.20",
+        "isSemVerMajor": true
+      }
+    },
+    "@strapi/plugin-cloud": {
+      "name": "@strapi/plugin-cloud",
+      "severity": "moderate",
+      "isDirect": true,
+      "via": [
+        "@strapi/strapi"
+      ],
+      "effects": [],
+      "range": "<=0.0.0-next.fdac61dd05ca665168f51f655f1d165b55ec4231 || >=5.0.0-alpha.0",
+      "nodes": [
+        "node_modules/@strapi/plugin-cloud"
+      ],
+      "fixAvailable": {
+        "name": "@strapi/plugin-cloud",
+        "version": "4.25.20",
+        "isSemVerMajor": true
+      }
+    },
+    "@strapi/plugin-users-permissions": {
+      "name": "@strapi/plugin-users-permissions",
+      "severity": "critical",
+      "isDirect": true,
+      "via": [
+        "@strapi/strapi",
+        "koa"
+      ],
+      "effects": [],
+      "range": "<=0.0.0-next.fe88c7878fe2948cfdc68f4867329c1032a618b2 || >=4.12.1",
+      "nodes": [
+        "node_modules/@strapi/plugin-users-permissions"
+      ],
+      "fixAvailable": {
+        "name": "@strapi/plugin-users-permissions",
+        "version": "4.12.0",
+        "isSemVerMajor": true
+      }
+    },
+    "@strapi/review-workflows": {
+      "name": "@strapi/review-workflows",
+      "severity": "critical",
+      "isDirect": true,
+      "via": [
+        "@strapi/admin",
+        "@strapi/content-manager"
+      ],
+      "effects": [],
+      "range": "*",
+      "nodes": [
+        "node_modules/@strapi/review-workflows"
+      ],
+      "fixAvailable": {
+        "name": "@strapi/review-workflows",
+        "version": "0.0.1",
+        "isSemVerMajor": true
+      }
+    },
+    "@strapi/sdk-plugin": {
+      "name": "@strapi/sdk-plugin",
+      "severity": "moderate",
+      "isDirect": true,
+      "via": [
+        "@strapi/pack-up"
+      ],
+      "effects": [],
+      "range": "*",
+      "nodes": [
+        "node_modules/@strapi/sdk-plugin"
+      ],
+      "fixAvailable": false
+    },
+    "@strapi/strapi": {
+      "name": "@strapi/strapi",
+      "severity": "critical",
+      "isDirect": true,
+      "via": [
+        "@strapi/admin",
+        "@strapi/content-manager",
+        "@strapi/content-releases",
+        "@strapi/content-type-builder",
+        "@strapi/core",
+        "@strapi/data-transfer",
+        "@strapi/email",
+        "@strapi/generators",
+        "@strapi/i18n",
+        "@strapi/pack-up",
+        "@strapi/review-workflows",
+        "@strapi/types",
+        "@strapi/upload",
+        "@vitejs/plugin-react-swc",
+        "esbuild",
+        "esbuild-loader",
+        "vite"
+      ],
+      "effects": [
+        "@_sh/strapi-plugin-ckeditor",
+        "@strapi/plugin-cloud",
+        "@strapi/plugin-users-permissions"
+      ],
+      "range": "*",
+      "nodes": [
+        "node_modules/@strapi/strapi"
+      ],
+      "fixAvailable": {
+        "name": "@strapi/strapi",
+        "version": "4.25.20",
+        "isSemVerMajor": true
+      }
+    },
+    "@strapi/types": {
+      "name": "@strapi/types",
+      "severity": "critical",
+      "isDirect": false,
+      "via": [
+        "koa"
+      ],
+      "effects": [
+        "@strapi/admin",
+        "@strapi/content-releases",
+        "@strapi/data-transfer",
+        "@strapi/strapi"
+      ],
+      "range": "<=0.0.0-next.fe88c7878fe2948cfdc68f4867329c1032a618b2 || >=4.14.0",
+      "nodes": [
+        "node_modules/@strapi/data-transfer/node_modules/@strapi/types",
+        "node_modules/@strapi/types"
+      ],
+      "fixAvailable": {
+        "name": "@strapi/strapi",
+        "version": "4.25.20",
+        "isSemVerMajor": true
+      }
+    },
+    "@strapi/upload": {
+      "name": "@strapi/upload",
+      "severity": "critical",
+      "isDirect": false,
+      "via": [
+        "@strapi/admin"
+      ],
+      "effects": [],
+      "range": "<=0.0.0-next.fdac61dd05ca665168f51f655f1d165b55ec4231 || >=5.0.0-beta.6",
+      "nodes": [
+        "node_modules/@strapi/upload"
+      ],
+      "fixAvailable": true
+    },
+    "@vitejs/plugin-react-swc": {
+      "name": "@vitejs/plugin-react-swc",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "vite"
+      ],
+      "effects": [],
+      "range": "<=3.7.1",
+      "nodes": [
+        "node_modules/@strapi/core/node_modules/@vitejs/plugin-react-swc",
+        "node_modules/@strapi/strapi/node_modules/@vitejs/plugin-react-swc",
+        "node_modules/@vitejs/plugin-react-swc"
+      ],
+      "fixAvailable": true
+    },
+    "braces": {
+      "name": "braces",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1098094,
+          "name": "braces",
+          "dependency": "braces",
+          "title": "Uncontrolled resource consumption in braces",
+          "url": "https://github.com/advisories/GHSA-grv7-fg5c-xmjg",
+          "severity": "high",
+          "cwe": [
+            "CWE-400",
+            "CWE-1050"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": "<3.0.3"
+        }
+      ],
+      "effects": [
+        "micromatch"
+      ],
+      "range": "<3.0.3",
+      "nodes": [
+        "node_modules/findup-sync/node_modules/braces"
+      ],
+      "fixAvailable": {
+        "name": "@strapi/strapi",
+        "version": "4.25.20",
+        "isSemVerMajor": true
+      }
+    },
+    "cookie": {
+      "name": "cookie",
+      "severity": "low",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1099846,
+          "name": "cookie",
+          "dependency": "cookie",
+          "title": "cookie accepts cookie name, path, and domain with out of bounds characters",
+          "url": "https://github.com/advisories/GHSA-pxg6-pf52-xh8x",
+          "severity": "low",
+          "cwe": [
+            "CWE-74"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": "<0.7.0"
+        }
+      ],
+      "effects": [
+        "msw"
+      ],
+      "range": "<0.7.0",
+      "nodes": [
+        "node_modules/@strapi/admin/node_modules/cookie"
+      ],
+      "fixAvailable": {
+        "name": "@strapi/strapi",
+        "version": "4.25.20",
+        "isSemVerMajor": true
+      }
+    },
+    "esbuild": {
+      "name": "esbuild",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1102341,
+          "name": "esbuild",
+          "dependency": "esbuild",
+          "title": "esbuild enables any website to send any requests to the development server and read the response",
+          "url": "https://github.com/advisories/GHSA-67mh-4wv8-2f99",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-346"
+          ],
+          "cvss": {
+            "score": 5.3,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:N/A:N"
+          },
+          "range": "<=0.24.2"
+        }
+      ],
+      "effects": [
+        "@strapi/pack-up",
+        "@strapi/strapi",
+        "esbuild-loader",
+        "vite"
+      ],
+      "range": "<=0.24.2",
+      "nodes": [
+        "node_modules/@strapi/core/node_modules/esbuild",
+        "node_modules/@strapi/pack-up/node_modules/esbuild",
+        "node_modules/@strapi/pack-up/node_modules/vite/node_modules/esbuild",
+        "node_modules/@strapi/strapi/node_modules/@strapi/pack-up/node_modules/esbuild",
+        "node_modules/@strapi/strapi/node_modules/esbuild",
+        "node_modules/@strapi/strapi/node_modules/esbuild-loader/node_modules/esbuild",
+        "node_modules/@strapi/strapi/node_modules/vite/node_modules/esbuild",
+        "node_modules/vite/node_modules/esbuild"
+      ],
+      "fixAvailable": {
+        "name": "@strapi/strapi",
+        "version": "4.25.20",
+        "isSemVerMajor": true
+      }
+    },
+    "esbuild-loader": {
+      "name": "esbuild-loader",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "esbuild"
+      ],
+      "effects": [],
+      "range": "<=4.2.2",
+      "nodes": [
+        "node_modules/@strapi/strapi/node_modules/esbuild-loader"
+      ],
+      "fixAvailable": true
+    },
+    "findup-sync": {
+      "name": "findup-sync",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "micromatch"
+      ],
+      "effects": [
+        "liftoff"
+      ],
+      "range": "0.4.0 - 3.0.0",
+      "nodes": [
+        "node_modules/findup-sync"
+      ],
+      "fixAvailable": {
+        "name": "@strapi/strapi",
+        "version": "4.25.20",
+        "isSemVerMajor": true
+      }
+    },
+    "koa": {
+      "name": "koa",
+      "severity": "critical",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1102314,
+          "name": "koa",
+          "dependency": "koa",
+          "title": "Inefficient Regular Expression Complexity in koa",
+          "url": "https://github.com/advisories/GHSA-593f-38f6-jp5m",
+          "severity": "critical",
+          "cwe": [
+            "CWE-1333"
+          ],
+          "cvss": {
+            "score": 0,
+            "vectorString": null
+          },
+          "range": ">=2.0.0 <2.15.4"
+        }
+      ],
+      "effects": [
+        "@strapi/admin",
+        "@strapi/content-manager",
+        "@strapi/core",
+        "@strapi/email",
+        "@strapi/plugin-users-permissions",
+        "@strapi/types"
+      ],
+      "range": "2.0.0 - 2.15.3",
+      "nodes": [
+        "node_modules/@strapi/admin/node_modules/koa",
+        "node_modules/@strapi/content-manager/node_modules/koa",
+        "node_modules/@strapi/core/node_modules/koa",
+        "node_modules/@strapi/data-transfer/node_modules/koa",
+        "node_modules/@strapi/plugin-users-permissions/node_modules/koa",
+        "node_modules/@strapi/strapi/node_modules/koa",
+        "node_modules/@strapi/types/node_modules/koa"
+      ],
+      "fixAvailable": {
+        "name": "@strapi/strapi",
+        "version": "4.25.20",
+        "isSemVerMajor": true
+      }
+    },
+    "liftoff": {
+      "name": "liftoff",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "findup-sync"
+      ],
+      "effects": [
+        "plop"
+      ],
+      "range": "2.2.3 - 3.1.0",
+      "nodes": [
+        "node_modules/liftoff"
+      ],
+      "fixAvailable": {
+        "name": "@strapi/strapi",
+        "version": "4.25.20",
+        "isSemVerMajor": true
+      }
+    },
+    "micromatch": {
+      "name": "micromatch",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1098681,
+          "name": "micromatch",
+          "dependency": "micromatch",
+          "title": "Regular Expression Denial of Service (ReDoS) in micromatch",
+          "url": "https://github.com/advisories/GHSA-952p-6rrq-rcjv",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-1333"
+          ],
+          "cvss": {
+            "score": 5.3,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L"
+          },
+          "range": "<4.0.8"
+        },
+        "braces"
+      ],
+      "effects": [
+        "findup-sync"
+      ],
+      "range": "<=4.0.7",
+      "nodes": [
+        "node_modules/findup-sync/node_modules/micromatch"
+      ],
+      "fixAvailable": {
+        "name": "@strapi/strapi",
+        "version": "4.25.20",
+        "isSemVerMajor": true
+      }
+    },
+    "msw": {
+      "name": "msw",
+      "severity": "low",
+      "isDirect": false,
+      "via": [
+        "cookie"
+      ],
+      "effects": [
+        "@strapi/admin"
+      ],
+      "range": "<=0.0.1 || 0.13.0 - 1.3.5",
+      "nodes": [
+        "node_modules/@strapi/admin/node_modules/msw"
+      ],
+      "fixAvailable": {
+        "name": "@strapi/strapi",
+        "version": "4.25.20",
+        "isSemVerMajor": true
+      }
+    },
+    "plop": {
+      "name": "plop",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        "liftoff"
+      ],
+      "effects": [
+        "@strapi/generators"
+      ],
+      "range": "2.3.0 - 2.7.6",
+      "nodes": [
+        "node_modules/plop"
+      ],
+      "fixAvailable": {
+        "name": "@strapi/strapi",
+        "version": "4.25.20",
+        "isSemVerMajor": true
+      }
+    },
+    "undici": {
+      "name": "undici",
+      "severity": "moderate",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1101609,
+          "name": "undici",
+          "dependency": "undici",
+          "title": "Use of Insufficiently Random Values in undici",
+          "url": "https://github.com/advisories/GHSA-c76h-2ccp-4975",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-330"
+          ],
+          "cvss": {
+            "score": 6.8,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:N"
+          },
+          "range": ">=6.0.0 <6.21.1"
+        }
+      ],
+      "effects": [
+        "@strapi/core"
+      ],
+      "range": "6.0.0 - 6.21.0",
+      "nodes": [
+        "node_modules/undici"
+      ],
+      "fixAvailable": true
+    },
+    "vite": {
+      "name": "vite",
+      "severity": "moderate",
+      "isDirect": true,
+      "via": [
+        {
+          "source": 1099688,
+          "name": "vite",
+          "dependency": "vite",
+          "title": "Vite's `server.fs.deny` is bypassed when using `?import&raw`",
+          "url": "https://github.com/advisories/GHSA-9cwx-2883-4wfx",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-200",
+            "CWE-284"
+          ],
+          "cvss": {
+            "score": 5.3,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N"
+          },
+          "range": ">=5.2.0 <5.2.14"
+        },
+        {
+          "source": 1099691,
+          "name": "vite",
+          "dependency": "vite",
+          "title": "Vite DOM Clobbering gadget found in vite bundled scripts that leads to XSS",
+          "url": "https://github.com/advisories/GHSA-64vr-g452-qvp3",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-79"
+          ],
+          "cvss": {
+            "score": 6.4,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:L/UI:N/S:U/C:L/I:L/A:H"
+          },
+          "range": ">=5.2.0 <5.2.14"
+        },
+        {
+          "source": 1102437,
+          "name": "vite",
+          "dependency": "vite",
+          "title": "Websites were able to send any requests to the development server and read the response in vite",
+          "url": "https://github.com/advisories/GHSA-vg6x-rcgg-rjx6",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-346",
+            "CWE-350",
+            "CWE-1385"
+          ],
+          "cvss": {
+            "score": 6.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:N"
+          },
+          "range": ">=5.0.0 <=5.4.11"
+        },
+        "esbuild"
+      ],
+      "effects": [
+        "@strapi/pack-up",
+        "@vitejs/plugin-react-swc"
+      ],
+      "range": "0.11.0 - 6.1.1",
+      "nodes": [
+        "node_modules/@strapi/core/node_modules/vite",
+        "node_modules/@strapi/pack-up/node_modules/vite",
+        "node_modules/@strapi/strapi/node_modules/@strapi/pack-up/node_modules/vite",
+        "node_modules/@strapi/strapi/node_modules/vite",
+        "node_modules/vite"
+      ],
+      "fixAvailable": {
+        "name": "@strapi/strapi",
+        "version": "4.25.20",
+        "isSemVerMajor": true
+      }
+    }
+  },
+  "metadata": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 2,
+      "moderate": 13,
+      "high": 2,
+      "critical": 14,
+      "total": 31
+    },
+    "dependencies": {
+      "prod": 1672,
+      "dev": 0,
+      "optional": 252,
+      "peer": 15,
+      "peerOptional": 0,
+      "total": 1938
+    }
+  }
+}

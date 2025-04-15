@@ -10,36 +10,21 @@
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {
-    "i18n": {
-      "localized": true
-    }
-  },
+  "pluginOptions": {},
   "attributes": {
     "siteName": {
       "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "pluginOptions": {}
     },
     "siteDomain": {
       "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "pluginOptions": {}
     },
     "targetLink": {
       "type": "string",
       "required": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "pluginOptions": {},
+      "default": "/"
     },
     "siteID": {
       "type": "uid",
@@ -73,27 +58,15 @@
         "videos",
         "audios"
       ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "pluginOptions": {}
     },
     "siteTitle": {
       "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "pluginOptions": {}
     },
     "siteDescription": {
       "type": "text",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "pluginOptions": {}
     },
     "favicon": {
       "type": "media",
@@ -102,11 +75,7 @@
       "allowedTypes": [
         "images"
       ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "pluginOptions": {}
     },
     "page_sections": {
       "type": "relation",
@@ -116,28 +85,18 @@
     },
     "themePrimaryColor": {
       "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "pluginOptions": {},
+      "default": "#"
     },
     "themeSecondaryColor": {
       "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "pluginOptions": {},
+      "default": "#"
     },
     "targetLinkButton": {
       "type": "string",
-      "default": "/",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "default": "/go",
+      "pluginOptions": {}
     },
     "footer": {
       "type": "relation",
@@ -152,11 +111,7 @@
       "inversedBy": "all_sites"
     },
     "localeLang": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
+      "pluginOptions": {},
       "type": "enumeration",
       "enum": [
         "en-Gb",
@@ -172,65 +127,37 @@
       ]
     },
     "themeBGPrimaryColor": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
+      "pluginOptions": {},
       "type": "string",
-      "default": "#10181f"
+      "default": "#"
     },
     "themeBGSecondaryColor": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
+      "pluginOptions": {},
       "type": "string",
-      "default": "#0b0e13"
+      "default": "#"
     },
     "titleMetadataSeo": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
+      "pluginOptions": {},
       "type": "string",
       "private": true
     },
     "titleHomePage": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
+      "pluginOptions": {},
       "type": "string",
       "private": true
     },
     "titlePromoImg": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
+      "pluginOptions": {},
       "type": "string",
       "private": true
     },
     "titleSiteComponents": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
+      "pluginOptions": {},
       "type": "string",
       "private": true
     },
     "titleSiteSettings": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
+      "pluginOptions": {},
       "type": "string",
       "private": true
     },
@@ -241,26 +168,14 @@
       "allowedTypes": [
         "images"
       ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      }
+      "pluginOptions": {}
     },
     "H1": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
+      "pluginOptions": {},
       "type": "string"
     },
     "sizeLogo": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
+      "pluginOptions": {},
       "type": "enumeration",
       "enum": [
         "small - 200px",
@@ -270,20 +185,51 @@
       "default": "small - 200px"
     },
     "colorTitleMain": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
+      "pluginOptions": {},
       "type": "string",
       "default": "#FFFFFF"
     },
     "idYandexMetrika": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
+      "pluginOptions": {},
+      "type": "string"
+    },
+    "wysiwyg": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
       },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "imageHomeHero": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "imageHomeBg": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "homePretitle": {
+      "type": "text"
+    },
+    "homeTitle": {
+      "type": "string"
+    },
+    "homeSubtitle": {
+      "type": "string"
+    },
+    "mainButtonText": {
       "type": "string"
     }
   }

@@ -30,6 +30,8 @@ export default factories.createCoreController('api::all-site.all-site', ({ strap
         siteLogo: true,
         page_sections: true,
         promoImg: true,
+        imageHomeHero: true,
+        imageHomeBg: true,
       },
     });
     

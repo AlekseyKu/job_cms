@@ -506,30 +506,10 @@ export interface ApiAllSiteAllSite extends Struct.CollectionTypeSchema {
   options: {
     draftAndPublish: true;
   };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
   attributes: {
-    siteName: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    siteDomain: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    targetLink: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+    siteName: Schema.Attribute.String;
+    siteDomain: Schema.Attribute.String;
+    targetLink: Schema.Attribute.String & Schema.Attribute.DefaultTo<'/'>;
     siteID: Schema.Attribute.UID & Schema.Attribute.Required;
     editor_info: Schema.Attribute.Relation<
       'manyToOne',
@@ -540,53 +520,20 @@ export interface ApiAllSiteAllSite extends Struct.CollectionTypeSchema {
       'manyToOne',
       'api::home-page.home-page'
     >;
-    siteLogo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    siteTitle: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    siteDescription: Schema.Attribute.Text &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    favicon: Schema.Attribute.Media<'images'> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+    siteLogo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    siteTitle: Schema.Attribute.String;
+    siteDescription: Schema.Attribute.Text;
+    favicon: Schema.Attribute.Media<'images'>;
     page_sections: Schema.Attribute.Relation<
       'manyToMany',
       'api::page-section.page-section'
     >;
     themePrimaryColor: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+      Schema.Attribute.DefaultTo<'#'>;
     themeSecondaryColor: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+      Schema.Attribute.DefaultTo<'#'>;
     targetLinkButton: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }> &
-      Schema.Attribute.DefaultTo<'/'>;
+      Schema.Attribute.DefaultTo<'/go'>;
     footer: Schema.Attribute.Relation<'manyToOne', 'api::footer.footer'>;
     header: Schema.Attribute.Relation<'manyToOne', 'api::header.header'>;
     localeLang: Schema.Attribute.Enumeration<
@@ -602,95 +549,40 @@ export interface ApiAllSiteAllSite extends Struct.CollectionTypeSchema {
         'ro-RO',
         'pt-PT',
       ]
-    > &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+    >;
     themeBGPrimaryColor: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }> &
-      Schema.Attribute.DefaultTo<'#10181f'>;
+      Schema.Attribute.DefaultTo<'#'>;
     themeBGSecondaryColor: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }> &
-      Schema.Attribute.DefaultTo<'#0b0e13'>;
-    titleMetadataSeo: Schema.Attribute.String &
-      Schema.Attribute.Private &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    titleHomePage: Schema.Attribute.String &
-      Schema.Attribute.Private &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    titlePromoImg: Schema.Attribute.String &
-      Schema.Attribute.Private &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    titleSiteComponents: Schema.Attribute.String &
-      Schema.Attribute.Private &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    titleSiteSettings: Schema.Attribute.String &
-      Schema.Attribute.Private &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    promoImg: Schema.Attribute.Media<'images', true> &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    H1: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+      Schema.Attribute.DefaultTo<'#'>;
+    titleMetadataSeo: Schema.Attribute.String & Schema.Attribute.Private;
+    titleHomePage: Schema.Attribute.String & Schema.Attribute.Private;
+    titlePromoImg: Schema.Attribute.String & Schema.Attribute.Private;
+    titleSiteComponents: Schema.Attribute.String & Schema.Attribute.Private;
+    titleSiteSettings: Schema.Attribute.String & Schema.Attribute.Private;
+    promoImg: Schema.Attribute.Media<'images', true>;
+    H1: Schema.Attribute.String;
     sizeLogo: Schema.Attribute.Enumeration<
       ['small - 200px', 'medium - 250px', 'big - 300px']
     > &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }> &
       Schema.Attribute.DefaultTo<'small - 200px'>;
     colorTitleMain: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }> &
       Schema.Attribute.DefaultTo<'#FFFFFF'>;
-    idYandexMetrika: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
+    idYandexMetrika: Schema.Attribute.String;
+    wysiwyg: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    imageHomeHero: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    imageHomeBg: Schema.Attribute.Media<'images' | 'files'>;
+    homePretitle: Schema.Attribute.Text;
+    homeTitle: Schema.Attribute.String;
+    homeSubtitle: Schema.Attribute.String;
+    mainButtonText: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -698,11 +590,12 @@ export interface ApiAllSiteAllSite extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    locale: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::all-site.all-site'
-    >;
+    > &
+      Schema.Attribute.Private;
   };
 }
 
@@ -1046,6 +939,59 @@ export interface ApiPageSectionPageSection extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::page-section.page-section'
+    > &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPrivacyPolicyPrivacyPolicy
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'privacy_policies';
+  info: {
+    singularName: 'privacy-policy';
+    pluralName: 'privacy-policies';
+    displayName: 'privacy-policy';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    language: Schema.Attribute.Enumeration<
+      [
+        'en-Gb',
+        'pl-PL',
+        'es-ES',
+        'nl-NL',
+        'fr-FR',
+        'de-DE',
+        'el-GR',
+        'it-IT',
+        'ro-RO',
+        'pt-PT',
+      ]
+    >;
+    text: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    popupDescription: Schema.Attribute.Text;
+    buttonText: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::privacy-policy.privacy-policy'
     > &
       Schema.Attribute.Private;
   };
@@ -1545,6 +1491,7 @@ declare module '@strapi/strapi' {
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::info-casino.info-casino': ApiInfoCasinoInfoCasino;
       'api::page-section.page-section': ApiPageSectionPageSection;
+      'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
       'api::security-and-license.security-and-license': ApiSecurityAndLicenseSecurityAndLicense;
       'api::seo-meta-tag.seo-meta-tag': ApiSeoMetaTagSeoMetaTag;
       'api::spintax.spintax': ApiSpintaxSpintax;

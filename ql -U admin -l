@@ -1,0 +1,4 @@
+ id | document_id | site_name | site_domain | target_link | site_id | site_title | site_description | theme_primary_color | theme_secondary_color | target_link_button | locale_lang | theme_bg_primary_color | theme_bg_secondary_color | title_metadata_seo | title_home_page | title_promo_img | title_site_components | title_site_settings | h_1 | size_logo | color_title_main | id_yandex_metrika | created_at | updated_at | published_at | created_by_id | updated_by_id | locale 
+----+-------------+-----------+-------------+-------------+---------+------------+------------------+---------------------+-----------------------+--------------------+-------------+------------------------+--------------------------+--------------------+-----------------+-----------------+-----------------------+---------------------+-----+-----------+------------------+-------------------+------------+------------+--------------+---------------+---------------+--------
+(0 rows)
+
