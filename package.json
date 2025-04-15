@@ -9,10 +9,10 @@
     "develop": "strapi develop",
     "start": "strapi start",
     "strapi": "strapi",
-    "pm2-dev": "NODE_ENV=development pm2 start npm --name strapi-dev -- run develop",
-    "pm2-prod": "npm run build && NODE_ENV=production pm2 start npm --name strapi-prod -- run start",
-    "stop-dev": "pm2 stop strapi-dev && pm2 delete strapi-dev",
-    "stop-prod": "pm2 stop strapi-prod && pm2 delete strapi-prod"
+    "start-dev": "NODE_ENV=development pm2 start npm --name strapi-dev -- run develop",
+    "start-prod": "NODE_ENV=production pm2 start npm --name strapi-prod -- run start",
+    "stop-dev": "pm2 stop strapi-dev",
+    "stop-prod": "pm2 stop strapi-prod"
   },
   "dependencies": {
     "@_sh/strapi-plugin-ckeditor": "^5.0.1",
